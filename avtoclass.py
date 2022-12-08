@@ -31,6 +31,11 @@ class Car:
             sum_tax = self.power * tax
             return sum_tax
 
+    # увеличение пробега
+    def set_mileage(self, kmr):
+        self.km += kmr
+
+
 avto_1 = Car("О811КК750", "б/у", 'Renaught', 'Duster', 2015, 110, 27889, 3, 1.2)
 print(avto_1)
 print("Налог на мощность:", avto_1.get_tax())
@@ -40,3 +45,5 @@ print("Налог на мощность:", avto_2.get_tax())
 avto_3 = Car("1KLBN52TWXM186109", "новая", 'Renaught', 'Duster', 2022, 180, 7889, 2, 3.7)
 print(avto_3)
 print("Налог на мощность:", avto_3.get_tax())
+avto_3.set_mileage(1000)
+print(avto_3)
