@@ -65,6 +65,27 @@ class Car:
         else:
             return False
 
+class Owner:
+    # ФИО, номер в/у, дата рождения, область, автомобили
+    def __init__(self, fio, vu,  burth_date, oblast, cars=None):
+        self.fio = fio
+        self.vu = int(vu)
+        self.burth_date = burth_date
+        self.oblast = oblast
+        if cars is None:
+            cars = list()
+        self.cars = cars
+
+    # Добавляем автомобиль владельцу
+    def append(self, owner):
+        self.cars.append(owner)
+
+    # вывод информации о текущем владельце
+    def __str__(self):
+        return f" ФИО: {self.fio}, водительское удостоверение: {self.vu}" \
+               f" дата рождения': {self.burth_date}, область, где выданы права: {self.oblast}," \
+               f" автомобили: {self.cars}"
+
 avto_1 = Car("О811КК750", "б/у", 'Renaught', 'Duster', 2015, 110, 27889, 3, 1.2)
 print(avto_1)
 print("Налог на мощность:", avto_1.get_tax())
@@ -82,3 +103,8 @@ print(avto_3)
 print(avto_1.get_age() < avto_2.get_age())
 print(avto_1.get_age() > avto_3.get_age())
 print(avto_3.get_age() != avto_2.get_age())
+
+owner_1 = Owner('Кагарманов Родион Радикович', 1234567890, '12.12.1970', 'Момсковская', avto_1)
+print(owner_1)
+owner_1.append(avto_2)
+print(owner_1)
